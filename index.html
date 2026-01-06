@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | 서우 김</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+ body {
+  background: #f8f9fb;
+  color: #1f1f1f;
+  line-height: 1.6;
+}
+/* =====================
+   Global Layout Grid
+===================== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.content-block {
+  max-width: 700px;
+}
+.content-block h2 {
+  margin-bottom: 20px;
+}
+
+.content-block .text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+/* =====================
+   Profile / Resume
+===================== */
+
+.profile-section {
+  padding: 0;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;   /* 세로 정렬 */
+  align-items: flex-start;  /* 텍스트 왼쪽 정렬 */
+
+  gap: 32px;
+
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+ 
+  padding: 48px 0;   /* 좌우 0, 위아래만 여백 */
+}
+
+
+/* 사진 */
+.profile-photo img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #e5e9ee;
+}
+
+/* 텍스트 */
+.profile-info .name {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+   padding-left: 0;
+}
+
+.profile-info .role {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #666;
+}
+
+.profile-info .intro {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 자격증 */
+.certifications {
+  margin-top: 24px;
+  list-style: none;
+}
+
+.certifications li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.certifications li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #9aa6b2;
+}
+
+
+/* =====================
+   Hero / Key Visual
+===================== */
+.hero {
+  height: 80vh;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 207, 229, 0.9),
+    rgba(248, 249, 251, 1)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-inner {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* =====================
+   Section
+===================== */
+.section {
+  padding: 100px 0;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.text {
+  color: #555;
+}
+
+/* =====================
+   Skills
+===================== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills li {
+  list-style: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.04);
+  font-size: 14px;
+}
+
+/* =====================
+   Projects
+===================== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  padding: 32px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  font-size: 15px;
+  color: #555;
+}
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  padding: 32px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.tags {
+  margin-top: 16px;
+}
+
+.tags span {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.06);
+}
+/* =====================
+   Skills Bar
+===================== */
+
+.skill {
+  margin-bottom: 28px;
+}
+
+.label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+
+  /* 구름 같은 뮤트 그라데이션 */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 186, 221, 0.9),
+    rgba(255, 158, 218, 0.9),
+    rgba(220, 200, 213, 0.9)
+  );
+  background-size: 200% 100%;
+
+  transition: width 1.4s ease;
+  animation: cloudFlow 6s ease-in-out infinite;
+}
+
+/* =====================
+   Contact
+===================== */
+.contact {
+  background: #eef1f5;
+}
+
+/* =====================
+   📱 Mobile Responsive
+===================== */
+@media (max-width: 768px) {
+
+
+   
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+     padding: 48px 0;
+  }
+
+  .profile-photo img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .certifications li {
+    padding-left: 0;
+  }
+
+  .certifications li::before {
+    display: none;
+  }
+}
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 72px 20px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  @keyframes cloudFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+</style>
+<body>
+
+  <!-- Hero / Key Visual -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>graphic designer</h1>
+      <p class="subtitle">
+        안녕하세요 <br>
+        내일의 성장이 기대되는 디자이너 김서우입니다.
+      </p>
+    </div>
+  </section>
+  <section class="section profile-section">
+  <div class="container">
+    <div class="content-block">
+
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="https://cdn.discordapp.com/attachments/1413003234498576484/1457883603517309019/3472469181659283228_20240229133446510.jpeg?ex=695d9f69&is=695c4de9&hm=60e214617799503a6f3fd68e02b74930dd1c751c7af0b34025047a456e68f3b7&" alt="서우 김 프로필 사진">
+        </div>
+
+        <div class="profile-info">
+          <h1 class="name">김서우</h1>
+          <p class="role">graphic designer</p>
+
+          <p class="intro">
+            명쾌한 디자인을 합니다.
+          </p>
+
+          <ul class="certifications">
+            <li>GTQ 1급</li>
+            <li>GTQ-i 1급</li>
+            <li>웹디자인기능사</li>
+            <li>컴퓨터그래픽스운용기능사</li>
+            <li>UI/UX 관련 교육 수료</li>
+            <li>AI 디자인 관련 교육 수료</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content-block">
+      <h2>About</h2>
+      <p class="text">
+        사용자 흐름을 중심으로 문제를 정의하고,<br />
+        차분하지만 명확한 UI를 설계합니다.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section" id="skills">
+  <div class="container">
+    <div class="content-block">
+      <h2>Skills</h2>
+
+      <div class="skill">
+        <span class="label">Photoshop</span>
+        <div class="bar">
+          <div class="bar-fill" data-percent="90"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <span class="label">Illustrator</span>
+        <div class="bar">
+          <div class="bar-fill" data-percent="90"></div>
+        </div>
+      </div>
+
+       <div class="skill">
+        <span class="label">VS code</span>
+        <div class="bar">
+          <div class="bar-fill" data-percent="80"></div>
+        </div>
+      </div>
+       <div class="skill">
+        <span class="label">Midjourney</span>
+        <div class="bar">
+          <div class="bar-fill" data-percent="90"></div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="content-block">
+      <h2>Projects</h2>
+
+      <div class="projects">
+        <!-- project-card -->
+     
+        <!-- project-card들 -->
+     
+  <a href="https://seou0612-crypto.github.io/portpolio.github.io/" target="_blank" class="project-card">
+    <h3>뮤트 컬러 틴트 상세페이지</h3>
+    <p>
+      키비주얼 기획, 배너 리사이즈,
+      브랜드 무드에 맞는 UX 구조 설계
+    </p>
+    <div class="tags">
+      <span>UX/UI</span>
+      <span>Visual</span>
+    </div>
+  </a>
+
+  <a href="project-app.html" target="_blank" class="project-card">
+    <h3>모바일 앱 UI 리디자인</h3>
+    <p>
+      사용자 플로우 개선과
+      인터페이스 정리 중심의 리디자인
+    </p>
+    <div class="tags">
+      <span>UX</span>
+      <span>Prototype</span>
+    </div>
+  </a>
+   <a href="project-app.html" target="_blank" class="project-card">
+    <h3>모바일 앱 UI 리디자인</h3>
+    <p>
+      사용자 플로우 개선과
+      인터페이스 정리 중심의 리디자인
+    </p>
+    <div class="tags">
+      <span>UX</span>
+      <span>Prototype</span>
+    </div>
+  </a>
+   <a href="project-app.html" target="_blank" class="project-card">
+    <h3>모바일 앱 UI 리디자인</h3>
+    <p>
+      사용자 플로우 개선과
+      인터페이스 정리 중심의 리디자인
+    </p>
+    <div class="tags">
+      <span>UX</span>
+      <span>Prototype</span>
+    </div>
+  </a>
+
+   <a href="project-app.html" target="_blank" class="project-card">
+    <h3>모바일 앱 UI 리디자인</h3>
+    <p>
+      사용자 플로우 개선과
+      인터페이스 정리 중심의 리디자인
+    </p>
+    <div class="tags">
+      <span>UX</span>
+      <span>Prototype</span>
+    </div>
+  </a>
+   <a href="project-app.html" target="_blank" class="project-card">
+    <h3>모바일 앱 UI 리디자인</h3>
+    <p>
+      사용자 플로우 개선과
+      인터페이스 정리 중심의 리디자인
+    </p>
+    <div class="tags">
+      <span>UX</span>
+      <span>Prototype</span>
+    </div>
+  </a>
+ </div>
+    </div>
+  </div>
+  
+</section>
+</div>
+</section>
+
+  <!-- Contact -->
+  <section class="section contact">
+    <h2>Contact</h2>
+    <p>Email · Behance · GitHub</p>
+  </section>
+<script>
+  const skillSection = document.querySelector('#skills');
+  const bars = document.querySelectorAll('.bar-fill');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bars.forEach(bar => {
+            const percent = bar.getAttribute('data-percent');
+            bar.style.width = percent + '%';
+          });
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  observer.observe(skillSection);
+</script>
+</body>
+</html>
